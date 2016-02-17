@@ -12,7 +12,7 @@ dtr = re.compile('.+TIOCM_DTR.+')
 start = time.time()
 
 def reset():
-  pin = 13
+  pin = 22
   GPIO.setup(pin, GPIO.OUT)
   GPIO.output(pin, GPIO.HIGH)
   time.sleep(0.12)
@@ -20,7 +20,7 @@ def reset():
 
 def process():
   while True:
-    try: 
+    try:
       duration = time.time() - start
       input = sys.stdin.readline().strip()
       if dtr.match(input):
